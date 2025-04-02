@@ -18,3 +18,8 @@ function multiply(a, b){
 function divide(a, b){
     return a / b
 }
+
+// When user hit =
+function operate(operandA, operandB, operator) {
+    return operator(operandA, operandB);
+}
