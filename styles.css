@@ -89,6 +89,7 @@ body {
 .buttons {
     flex: 6 0 0;
     display: flex;
+    gap: 10px;
 }
 
 .numbers{
@@ -97,11 +98,18 @@ body {
     flex-wrap: wrap;
 }
 
-.numbers .numberButton {
+.numbers button{
     width: 33.3%;
     flex: auto;
 }
 
 .operators {
     flex: 2 1 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operators button {
+    width: 50%;
+
 }
