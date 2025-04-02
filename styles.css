@@ -1,7 +1,21 @@
+a {
+    text-decoration: none;
+}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    font-family: "FiraCode Nerd Font";
+}
+
+.pageTitle {
+    margin-bottom: 10px;
+}
+.pageDescription {
+    margin-top: 0;
+    font-style: italic;
+    font-size: small;
 }
 
 .calculator {
@@ -11,7 +25,7 @@ body {
     border: 2px solid black;
     border-radius: 5px;
     
-    margin: 2px;
+    margin: 20px 0px;
     padding: 15px;
 
     height: 50vh;
