@@ -8,6 +8,13 @@
 a {
     text-decoration: none;
 }
+
+
+button {
+    font-weight: bold;
+}
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -90,6 +97,7 @@ body {
     flex: 6 0 0;
     display: flex;
     gap: 10px;
+
 }
 
 .numbers{
