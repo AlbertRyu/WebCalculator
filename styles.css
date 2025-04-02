@@ -91,8 +91,15 @@ body {
     display: flex;
 }
 
-.numbers {
+.numbers{
     flex:3 1 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.numbers .numberButton {
+    width: 33.3%;
+    flex: auto;
 }
 
 .operators {
