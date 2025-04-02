@@ -1,7 +1,9 @@
 console.log("hello!")
 
 const maximum_digit = 10
-let number1, number2, operator
+let number1 = 0 // Default as 0
+let number2 = '' 
+let operator = {text : '', func : undefined} // operator stores a function
 
 //Basic Binary Arithmatic Functions
 function sum(a, b){
@@ -17,7 +19,7 @@ function multiply(a, b){
 }
 
 function divide(a, b){
-    return a / b
+    return parseFloat((a / b).toPrecision(8))
 }
 
 // When user hit =
@@ -34,7 +36,7 @@ numbers.forEach(
     number => {
         let numberButton = document.createElement('button')
         numberButton.textContent = `${number}`
-        numberButton.addEventListener('click', (e)=>alert(e.target.textContent))
+        numberButton.addEventListener('click', userInputNumber)
         numberButtonContainer.appendChild(numberButton)
 
         // 0 is twice the width as others. 
@@ -46,6 +48,18 @@ numbers.forEach(
 )
 
 
+function userInputNumber(event) {
+    if (operator.func === undefined) {
+        // If no operator, user is inputting number 1
+        number1 = event.target.textContent
+    } else {
+        number2 = event.target.textContent
+    }
+
+    updateScreen()
+}
+
+
 //Add the operator buttons.
 const operButtonContainer = document.querySelector('.buttons .operators')
 
@@ -54,10 +68,50 @@ operators.forEach(
     operator => {
         let operButton = document.createElement('button')
         operButton.textContent = `${operator}`
-        operButton.addEventListener('click',(e) => alert(`should set operator as ${e.target.textContent}`))
+        operButton.addEventListener('click', userInputOperator)
         operButtonContainer.appendChild(operButton)
     }
 )
-let sumButton = document.createElement(button)
-sumButton.textContent = '+'
-sumButton.add
+
+function userInputOperator(event){
+
+    let clicked = event.target.textContent
+    operator.text = clicked
+
+    switch(clicked){
+        case '=':
+            operate()
+            break
+        case '+':
+            operator.func = sum
+            break
+        case '-':
+            operator.func = minus
+            break
+        case '×':
+            operator.func = multiply
+            break
+        case '÷':
+            operator.func = divide
+            break
+    }
+
+    updateScreen()
+}
+
+function operate(){
+    if (number1 && number2 && operator.func){
+        number1 = operator.func(+number1,+number2)
+        number2 = ''
+        operator.text = ''
+        operator.func = undefined
+    }
+    updateScreen()
+}
+
+
+const screen = document.querySelector('.screen')
+
+function updateScreen(){
+    screen.textContent = `${number1}${operator.text}${number2}`
+}
