@@ -58,11 +58,15 @@ numbers.forEach(
 
 
 function userInputNumber(event) {
+    let clicked = event.target.textContent
     if (operator.func === undefined) {
         // If no operator, user is inputting number 1
-        number1 += event.target.textContent
+        if (clicked === '.' && number1.includes('.')){
+            clicked = '' // Ensure only one decimal point exist.
+        }
+        number1 += clicked
     } else {
-        number2 += event.target.textContent
+        number2 += clicked
     }
 
     updateScreen()
