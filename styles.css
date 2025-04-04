@@ -44,8 +44,10 @@ body {
     padding: 15px;
 
     height: 50vh;
-    aspect-ratio: 0.8;
+    aspect-ratio: 4 / 5;
     gap: 15px;
+
+    max-width: 40vh;
 }
 
 /* Section Header */
@@ -90,11 +92,15 @@ body {
 .screen {
     border: 2px solid gray;
     flex:2 1 0;
+    max-width: 100%;
+    max-height: 100%;
 
     text-align: right;
     font-size: xx-large;
     
     padding: 3%;
+
+    overflow-x: auto;
 }
 
 /* Section Buttons */

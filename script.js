@@ -1,7 +1,7 @@
 console.log("hello!")
 
 const maximum_digit = 10
-let number1 = 0 // Default as 0
+let number1 = '' // Default as 0
 let number2 = '' 
 let operator = {text : '', func : undefined} // operator stores a function
 
@@ -51,9 +51,9 @@ numbers.forEach(
 function userInputNumber(event) {
     if (operator.func === undefined) {
         // If no operator, user is inputting number 1
-        number1 = event.target.textContent
+        number1 += event.target.textContent
     } else {
-        number2 = event.target.textContent
+        number2 += event.target.textContent
     }
 
     updateScreen()
@@ -80,6 +80,7 @@ function userInputOperator(event){
 
     switch(clicked){
         case '=':
+            operator.text = ''
             operate()
             break
         case '+':
