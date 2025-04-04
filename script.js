@@ -33,6 +33,19 @@ function clear(){
     number2 = ''
 }
 
+function backspace(){
+    if (operator.func === undefined){
+        number1 = number1.slice(0,-1)
+    } else if(number2 !== ''){
+        number2 = number2.slice(0,-1)
+    } else {
+        operator.text = ''
+        operator.func = undefined
+    }
+
+    updateScreen()
+}
+
 // When user hit =
 function operate(operandA, operandB, operatorFunc) {
     return operatorFunc(operandA, operandB);
@@ -97,11 +110,12 @@ operators.forEach(
 function userInputOperator(event){
 
     let clicked = event.target.textContent
-    operator.text = clicked
+    if (clicked !== '=' && clicked !== '←'){
+        operator.text = clicked
+    }
 
     switch(clicked){
         case '=':
-            operator.text = ''
             operate()
             break
         case '+':
@@ -121,6 +135,9 @@ function userInputOperator(event){
             break
         case '%':
             operator.func = mod
+            break
+        case '←':
+            backspace()
             break
     }
 
