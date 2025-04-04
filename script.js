@@ -22,6 +22,10 @@ function divide(a, b){
     return parseFloat((a / b).toPrecision(8))
 }
 
+function mod(a, b){
+    return a % b
+}
+
 function clear(){
     number1 = ''
     operator.text = ''
@@ -49,7 +53,6 @@ numbers.forEach(
         if (number === 0) {
             numberButton.style.width = '66.7%'
         }
-
     }
 )
 
@@ -103,6 +106,9 @@ function userInputOperator(event){
             break
         case 'AC':
             clear()
+            break
+        case '%':
+            operator.func = mod
             break
     }
 
