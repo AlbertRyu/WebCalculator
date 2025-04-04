@@ -115,4 +115,6 @@ const screen = document.querySelector('.screen')
 
 function updateScreen(){
     screen.textContent = `${number1}${operator.text}${number2}`
+    screen.scrollLeft = screen.scrollWidth;
+
 }
