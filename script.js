@@ -15,7 +15,7 @@ function minus(a, b){
 }
 
 function multiply(a, b){
-    return a * b
+    return parseFloat((a * b).toPrecision(6))
 }
 
 function divide(a, b){
@@ -56,20 +56,28 @@ numbers.forEach(
     }
 )
 
+function updateNumber(which, clicked){
+    if (clicked === '.' && (which === 'number1' ? number1 : number2).includes('.')){
+        clicked = '' // Ensure only one decimal point exist.
+    }
 
-function userInputNumber(event) {
-    let clicked = event.target.textContent
-    if (operator.func === undefined) {
-        // If no operator, user is inputting number 1
-        if (clicked === '.' && number1.includes('.')){
-            clicked = '' // Ensure only one decimal point exist.
-        }
+    if (which === 'number1'){
         number1 += clicked
     } else {
         number2 += clicked
     }
-
     updateScreen()
+}
+
+function userInputNumber(event) {
+    let clicked = event.target.textContent
+     if (operator.func === undefined) {
+        // If no operator, user is inputting number 1
+        updateNumber('number1',clicked)
+    } else {
+        updateNumber('number2',clicked)
+    }
+
 }
 
 
