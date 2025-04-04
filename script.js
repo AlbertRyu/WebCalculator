@@ -22,11 +22,17 @@ function divide(a, b){
     return parseFloat((a / b).toPrecision(8))
 }
 
+function clear(){
+    number1 = ''
+    operator.text = ''
+    operator.func = undefined
+    number2 = ''
+}
+
 // When user hit =
 function operate(operandA, operandB, operatorFunc) {
     return operatorFunc(operandA, operandB);
 }
-
 
 //Add the number buttons
 const numberButtonContainer = document.querySelector('.buttons .numbers')
@@ -95,6 +101,9 @@ function userInputOperator(event){
         case '÷':
             operator.func = divide
             break
+        case 'AC':
+            clear()
+            break
     }
 
     updateScreen()
@@ -116,5 +125,4 @@ const screen = document.querySelector('.screen')
 function updateScreen(){
     screen.textContent = `${number1}${operator.text}${number2}`
     screen.scrollLeft = screen.scrollWidth;
-
 }
