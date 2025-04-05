@@ -107,9 +107,22 @@ operators.forEach(
     }
 )
 
+
+
 function userInputOperator(event){
 
     let clicked = event.target.textContent
+
+    //Backspace have to be handle in the first place.
+    if (clicked === '←'){
+        backspace()
+    }
+
+    // IF both operator and number2 exist, operator first.
+    if (operator.func !== undefined && number2 !== ''){
+        operate()
+    }
+    
     if (clicked !== '=' && clicked !== '←'){
         operator.text = clicked
     }
@@ -135,9 +148,6 @@ function userInputOperator(event){
             break
         case '%':
             operator.func = mod
-            break
-        case '←':
-            backspace()
             break
     }
 
