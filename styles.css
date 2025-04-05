@@ -51,7 +51,7 @@ body {
     gap: 15px;
 
     max-width: 40vh;
-    font-size: clamp(10px, 2.5vmin, 24px);
+    font-size: clamp(10px, 2.5vh, 24px);
 }
 
 /* Section Header */
@@ -111,12 +111,17 @@ body {
 /* Section Buttons */
 button {
     font-family: inherit;
+    font-size: inherit;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .buttons {
     flex: 6 0 0;
     display: flex;
     gap: 10px;
+
+    font-size: clamp(15px,1em,40px);
 }
 
 .numbers{
@@ -130,7 +135,7 @@ button {
 .numbers button{
     width: calc((100% - 2 * 3px)/3);
     flex: auto;
-    font-size: clamp(1px,1em,40px);
+    
     border: 0.8px solid #888;
     background-color: #e0e0e0;
     color: #111;
