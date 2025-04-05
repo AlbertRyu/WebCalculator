@@ -146,7 +146,7 @@ function userInputOperator(event){
 
 function operate(){
     if (number1 && number2 && operator.func){
-        number1 = operator.func(+number1,+number2)
+        number1 = operator.func(+number1,+number2).toString()
         number2 = ''
         operator.text = ''
         operator.func = undefined
