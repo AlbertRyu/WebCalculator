@@ -64,7 +64,7 @@ numbers.forEach(
 
         // 0 is twice the width as others. 
         if (number === 0) {
-            numberButton.style.width = '66.7%'
+            numberButton.classList.add('zero')
         }
     }
 )
