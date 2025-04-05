@@ -14,6 +14,7 @@ Maybe it deserves a simple roadmap.
 2. <s> HTML interface</s>
 3. <s> CSS polish </s>
 4. <s> User Logic in Javascript</s>
+6. <s> Add Favicon </s>
 5. Keyboard Surpport
 6. Sound Effect?
 7. ...
